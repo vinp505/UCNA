@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "LION",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "LION", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=LION'>http:\/\/www.cablemap.info\/?c=LION<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 49.416666666, -18.015 ], [ 52.362336153199998, -19.010948769500001 ], [ 54.842650721, -20.1137529489 ], [ 55.53333333, -20.9 ], [ 55.850728082099998, -20.309350048799999 ], [ 56.181738558900001, -20.083661087399999 ], [ 56.964126958599998, -19.903109918199998 ], [ 57.5111582109, -20.041226860799998 ] ] } }
+]
+}

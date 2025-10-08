@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Tasman-2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Tasman-2", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Tasman-2'>http:\/\/www.cablemap.info\/?c=Tasman-2<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 174.77231, -36.78919 ], [ 174.350745466400014, -37.350779792700003 ], [ 172.932504166600012, -37.532605600399997 ], [ 166.677696383000011, -37.132588823500001 ], [ 154.568097592700013, -35.605252039200003 ], [ 151.586154347100006, -34.368836547100003 ], [ 151.280136762000012, -33.967729046099997 ] ] } }
+]
+}

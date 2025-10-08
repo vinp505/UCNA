@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "RIOJA-3",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "RIOJA-3", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=RIOJA-3'>http:\/\/www.cablemap.info\/?c=RIOJA-3<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 4.6264991443, 52.618914090099999 ], [ 2.5766241084, 51.769221202300002 ], [ 2.3184619139, 51.651364548300002 ], [ 2.6435386575, 51.127530937400003 ] ] } }
+]
+}

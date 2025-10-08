@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Alaska United - West",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Alaska United - West", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Alaska United - West'>http:\/\/www.cablemap.info\/?c=Alaska United - West<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -149.434573333299994, 60.108398333300002 ], [ -139.022166666700002, 54.887166666699997 ], [ -132.662273187700009, 49.0433249441 ], [ -130.271426797299995, 47.463494232800002 ], [ -125.89442826, 46.362991743400002 ], [ -123.924167, 46.165 ] ] } }
+]
+}

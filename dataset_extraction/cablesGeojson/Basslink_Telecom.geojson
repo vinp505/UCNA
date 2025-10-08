@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Basslink Telecom",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Basslink Telecom", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Basslink Telecom'>http:\/\/www.cablemap.info\/?c=Basslink Telecom<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 147.094059, -38.454261 ], [ 146.867790391900002, -39.324232109699999 ], [ 146.854935, -41.032557 ] ] } }
+]
+}

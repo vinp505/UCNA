@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Silphium",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Silphium", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Silphium'>http:\/\/www.cablemap.info\/?c=Silphium<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 24.006144643700001, 35.521324005099999 ], [ 23.831689150399999, 35.675567582299998 ], [ 23.567568978800001, 35.614891326699997 ], [ 22.846592294, 35.443570134200002 ], [ 22.6859786761, 32.977258801700003 ], [ 22.633333, 32.767 ] ] } }
+]
+}

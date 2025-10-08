@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Flores-Covo Cable System",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Flores-Covo Cable System", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Flores-Covo Cable System'>http:\/\/www.cablemap.info\/?c=Flores-Covo Cable System<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -28.014167, 39.051 ], [ -28.6810563047, 39.2760276769 ], [ -29.5662157989, 39.433072103299999 ], [ -30.651250017500001, 39.6043932957 ], [ -31.101667, 39.702 ], [ -31.227222, 39.467 ], [ -30.851124742, 39.268889293900003 ], [ -30.180116738399999, 38.840586312799999 ], [ -29.409171372500001, 38.5978812902 ], [ -28.7125, 38.576 ] ] } }
+]
+}

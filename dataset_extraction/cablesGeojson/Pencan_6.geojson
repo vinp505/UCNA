@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Pencan-6",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Pencan-6", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Pencan-6'>http:\/\/www.cablemap.info\/?c=Pencan-6<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -6.1294125332, 36.283612622299998 ], [ -6.3221125141, 36.114058051800001 ], [ -11.2047664981, 34.072480508699996 ], [ -12.4254299941, 33.608485612599999 ], [ -13.681785405199999, 32.773294799600002 ], [ -15.8090235444, 28.6330326494 ], [ -16.006045934, 28.228695317900002 ], [ -16.2612468998, 27.9949849598 ], [ -16.5327728436, 28.019247076 ] ] } }
+]
+}

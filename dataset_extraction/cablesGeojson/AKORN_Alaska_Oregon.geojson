@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "AKORN Alaska-Oregon",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "AKORN Alaska-Oregon", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=AKORN Alaska-Oregon'>http:\/\/www.cablemap.info\/?c=AKORN Alaska-Oregon<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -151.540666666699991, 59.638133333299997 ], [ -151.566025360200001, 59.494453907 ], [ -151.761344732200001, 59.482616369299997 ], [ -151.986257948299993, 59.387916067699997 ], [ -152.0040142549, 59.2695406908 ], [ -151.897476415600011, 58.985439786100002 ], [ -151.589700435600008, 58.423156745599996 ], [ -150.796585410099993, 57.973330313200002 ], [ -128.550746555300009, 44.561692390300003 ], [ -126.193761272100005, 43.944386720899999 ], [ -124.102962, 43.984298 ] ] } },
+{ "type": "Feature", "properties": { "Name": "AKORN Alaska-Oregon", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=AKORN Alaska-Oregon'>http:\/\/www.cablemap.info\/?c=AKORN Alaska-Oregon<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -150.026068333300003, 61.19566 ], [ -150.897204480499994, 60.956389812200001 ], [ -151.329274606300004, 60.838014435300003 ], [ -151.423974907900003, 60.7551516714 ], [ -151.406218601299997, 60.690045214100003 ], [ -151.262778, 60.707778 ] ] } },
+{ "type": "Feature", "properties": { "Name": "AKORN Alaska-Oregon", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=AKORN Alaska-Oregon'>http:\/\/www.cablemap.info\/?c=AKORN Alaska-Oregon<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -151.262778, 60.707778 ], [ -151.1422853535, 60.604698028800001 ], [ -151.183716735399997, 60.143034058700003 ], [ -151.396792413899988, 59.924039611300003 ], [ -151.540666666699991, 59.638133333299997 ] ] } }
+]
+}

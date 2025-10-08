@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Unity",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Unity", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Unity'>http:\/\/www.cablemap.info\/?c=Unity<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -118.390039065099998, 33.856869363500003 ], [ -124.697641643699995, 32.895607581299998 ], [ -135.758981393099987, 31.125793221399999 ], [ -180.0, 29.0 ] ] } },
+{ "type": "Feature", "properties": { "Name": "Unity", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Unity'>http:\/\/www.cablemap.info\/?c=Unity<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 139.960195, 34.97047 ], [ 142.460322946399998, 34.194214446499998 ], [ 180.0, 29.0 ] ] } }
+]
+}

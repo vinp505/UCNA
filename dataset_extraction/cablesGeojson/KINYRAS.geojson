@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "KINYRAS",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "KINYRAS", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=KINYRAS'>http:\/\/www.cablemap.info\/?c=KINYRAS<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 32.349206796, 34.851640287599999 ], [ 32.302825378400001, 34.7388392999 ], [ 32.446274414900003, 34.562286639600003 ], [ 32.843517900599998, 34.4409066857 ], [ 33.251795927499998, 34.518148474599997 ], [ 33.538694000500001, 34.689183864199997 ], [ 33.599430963499998, 34.823668824599999 ] ] } }
+]
+}

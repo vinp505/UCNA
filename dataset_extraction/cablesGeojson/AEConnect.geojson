@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "AEConnect",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "AEConnect", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=AEConnect'>http:\/\/www.cablemap.info\/?c=AEConnect<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -21.366244159400001, 51.909573991 ], [ -27.005566743199999, 50.910200368600002 ], [ -31.574131874399999, 49.696675255599999 ], [ -39.426353193700002, 47.4480846051 ], [ -47.302369123, 45.199493954600001 ], [ -53.2748162476, 43.5814604706 ], [ -62.304870764699999, 41.927735071599997 ], [ -68.313009804399996, 41.475637480499998 ], [ -69.978632508499999, 41.416150955299997 ], [ -70.371243574499999, 41.320972515100003 ], [ -71.870304008199994, 40.868874924 ], [ -72.694821741200002, 40.785999127899998 ] ] } },
+{ "type": "Feature", "properties": { "Name": "AEConnect", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=AEConnect'>http:\/\/www.cablemap.info\/?c=AEConnect<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -9.991, 54.225 ], [ -12.181524676900001, 53.920218541 ], [ -14.453909937500001, 53.598991305200002 ], [ -21.366244159400001, 51.909573991 ] ] } },
+{ "type": "Feature", "properties": { "Name": "AEConnect", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=AEConnect'>http:\/\/www.cablemap.info\/?c=AEConnect<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -22.433333, 63.833 ], [ -22.732054776799998, 63.571312380599998 ], [ -22.689224478700002, 60.473254151 ], [ -22.175260901400002, 56.689911151700002 ], [ -21.366244159400001, 51.909573991 ] ] } }
+]
+}

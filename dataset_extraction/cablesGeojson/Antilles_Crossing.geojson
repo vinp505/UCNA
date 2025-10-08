@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "Antilles Crossing",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Antilles Crossing", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Antilles Crossing'>http:\/\/www.cablemap.info\/?c=Antilles Crossing<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -61.0801531364, 14.031313154599999 ], [ -60.953683445400003, 14.231371217 ], [ -60.81853206, 14.238879627299999 ], [ -60.690889085, 14.2088459861 ], [ -59.737320977400003, 13.1426517241 ], [ -59.614429418299999, 13.0865732847 ] ] } },
+{ "type": "Feature", "properties": { "Name": "Antilles Crossing", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Antilles Crossing'>http:\/\/www.cablemap.info\/?c=Antilles Crossing<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -64.882165835400002, 17.765134131500002 ], [ -64.813006337499999, 17.880458620900001 ], [ -64.602770849199999, 18.008101595900001 ], [ -64.377518540300002, 18.0756772885 ], [ -64.032131666699996, 18.068168878200002 ], [ -63.972064384299998, 18.023118416500001 ], [ -63.829404588700001, 17.820391338499999 ], [ -63.844421409299997, 17.497529695800001 ], [ -63.972064384299998, 17.189684873600001 ], [ -64.002098025500004, 16.769213897 ], [ -61.344120780700003, 14.0436609596 ], [ -60.995507637099998, 14.027353631 ] ] } }
+]
+}

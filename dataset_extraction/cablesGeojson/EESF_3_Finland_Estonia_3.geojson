@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "EESF-3 (Finland--Estonia 3)",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "EESF-3 (Finland--Estonia 3)", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=EESF-3 (Finland--Estonia 3)'>http:\/\/www.cablemap.info\/?c=EESF-3 (Finland--Estonia 3)<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 24.9375, 60.170833 ], [ 25.235507011900001, 59.586872149199998 ], [ 25.249639096900001, 59.5209224193 ], [ 25.2466666, 59.383 ] ] } }
+]
+}

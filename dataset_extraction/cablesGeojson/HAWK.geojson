@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "HAWK",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "HAWK", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HAWK'>http:\/\/www.cablemap.info\/?c=HAWK<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 29.116388147199999, 33.421627453399999 ], [ 29.702726996799999, 32.532621164 ], [ 29.807423281, 32.247085843299999 ], [ 29.912119565299999, 31.499935087499999 ], [ 29.916842886800001, 31.2189695239 ] ] } },
+{ "type": "Feature", "properties": { "Name": "HAWK", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HAWK'>http:\/\/www.cablemap.info\/?c=HAWK<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 29.116388147199999, 33.421627453399999 ], [ 31.334640669900001, 34.250393721800002 ], [ 32.49, 34.748611111099997 ] ] } },
+{ "type": "Feature", "properties": { "Name": "HAWK", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HAWK'>http:\/\/www.cablemap.info\/?c=HAWK<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 5.3738880157, 43.268882751500001 ], [ 5.7465118785, 42.9983631367 ], [ 7.5876198317, 39.438094606699998 ], [ 8.1021782743, 38.783742830100003 ], [ 9.262165514599999, 37.952121208500003 ], [ 11.889090465, 37.5143003835 ], [ 15.410692753699999, 35.7439813951 ], [ 16.990654861500001, 35.172910753700002 ], [ 19.465294307600001, 34.735089928699999 ], [ 25.0427509053, 34.2020906634 ], [ 27.574497415500002, 33.707162774099999 ], [ 28.164603744899999, 33.459698829499999 ], [ 29.116388147199999, 33.421627453399999 ] ] } }
+]
+}

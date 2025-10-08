@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Estonia-Sweden 1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Estonia-Sweden 1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Estonia-Sweden 1'>http:\/\/www.cablemap.info\/?c=Estonia-Sweden 1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 18.683333, 59.283333 ], [ 22.654106015499998, 59.188606910799997 ], [ 22.75, 59.0 ], [ 23.299517466499999, 59.5389731271 ], [ 24.596487144099999, 59.569707005700003 ], [ 24.745278, 59.437222 ] ] } }
+]
+}

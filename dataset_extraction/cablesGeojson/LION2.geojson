@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "LION2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "LION2", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=LION2'>http:\/\/www.cablemap.info\/?c=LION2<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 52.362336153199998, -19.010948769500001 ], [ 52.222532282700001, -14.723630074600001 ], [ 51.034199383599997, -11.065428796799999 ], [ 48.3313245541, -6.8713126822 ] ] } },
+{ "type": "Feature", "properties": { "Name": "LION2", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=LION2'>http:\/\/www.cablemap.info\/?c=LION2<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 45.166875702900001, -12.7426177191 ], [ 46.085942516400003, -10.9937138798 ], [ 47.492501331200003, -8.7353642887 ], [ 48.3313245541, -6.8713126822 ] ] } },
+{ "type": "Feature", "properties": { "Name": "LION2", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=LION2'>http:\/\/www.cablemap.info\/?c=LION2<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 48.3313245541, -6.8713126822 ], [ 45.605149079599997, -4.8674572052 ], [ 42.62236947, -4.1420663575 ], [ 39.711296677299998, -4.0262123756 ] ] } }
+]
+}

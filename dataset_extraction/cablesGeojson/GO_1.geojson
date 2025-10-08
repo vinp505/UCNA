@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "GO-1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "GO-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=GO-1'>http:\/\/www.cablemap.info\/?c=GO-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 15.0985866815, 37.4987205284 ], [ 15.2219317372, 37.431136017 ], [ 15.3939003337, 37.297968246 ], [ 15.4088063253, 36.956993687699999 ], [ 15.3254637344, 36.565746525 ], [ 15.105531897400001, 36.183759650100001 ], [ 14.466572034, 35.947622309300002 ] ] } }
+]
+}
