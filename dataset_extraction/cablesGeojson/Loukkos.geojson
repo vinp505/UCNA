@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Loukkos",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Loukkos", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Loukkos'>http:\/\/www.cablemap.info\/?c=Loukkos<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -6.35, 36.617 ], [ -6.3296869237, 36.472881520400001 ], [ -6.228797777, 36.303463896799997 ], [ -6.1069693735, 36.1816354933 ], [ -6.0612837222, 36.031253557699998 ], [ -6.053669447, 35.557264925299997 ], [ -6.033333, 35.466667 ] ] } }
-]
-}

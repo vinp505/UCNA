@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "BCS North I",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "BCS North I", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=BCS North I'>http:\/\/www.cablemap.info\/?c=BCS North I<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 18.683333, 59.283333 ], [ 19.933333, 60.1 ], [ 20.056988326300001, 59.943491593499999 ], [ 20.5014006649, 59.86016428 ], [ 21.8531548614, 59.924974412700003 ], [ 22.2, 60.2 ], [ 22.242015657700001, 60.026818907 ], [ 22.510514778899999, 59.869422870400001 ], [ 22.9685, 59.824444 ], [ 23.075288792599999, 59.739802605 ], [ 24.102992325500001, 59.841647099299998 ], [ 24.658507748800002, 59.943491593499999 ], [ 24.9375, 60.170833 ] ] } }
-]
-}

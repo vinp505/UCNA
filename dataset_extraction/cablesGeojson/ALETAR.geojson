@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "ALETAR",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "ALETAR", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=ALETAR'>http:\/\/www.cablemap.info\/?c=ALETAR<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 29.916842886800001, 31.2189695239 ], [ 30.1012320253, 31.769397209899999 ], [ 35.256669839600001, 34.9220960237 ], [ 35.873112702100002, 34.891509838300003 ] ] } }
-]
-}

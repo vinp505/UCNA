@@ -1,9 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Svalbard Undersea Cable System",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Svalbard Undersea Cable System", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Svalbard Undersea Cable System'>http:\/\/www.cablemap.info\/?c=Svalbard Undersea Cable System<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 15.764444, 69.094444 ], [ 15.872504955, 69.576657883300001 ], [ 16.746713057899999, 69.416386397699995 ], [ 16.545833, 68.8 ], [ 16.513590897099999, 69.285255182300006 ], [ 15.9453556302, 69.401816262699995 ], [ 15.764444, 69.094444 ] ] } },
-{ "type": "Feature", "properties": { "Name": "Svalbard Undersea Cable System", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Svalbard Undersea Cable System'>http:\/\/www.cablemap.info\/?c=Svalbard Undersea Cable System<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 15.764444, 69.094444 ], [ 14.240649829600001, 73.073490294799996 ], [ 13.4975729422, 78.056476481100006 ], [ 14.5029122605, 78.187607696599997 ], [ 15.491667, 78.25 ], [ 14.4592018553, 78.318738912 ], [ 13.381011861799999, 78.114757021299994 ], [ 13.4975729422, 72.942359079300005 ], [ 15.764444, 69.094444 ] ] } }
-]
-}

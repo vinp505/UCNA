@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Korea-Japan Cable Network (KJCN)",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Korea-Japan Cable Network (KJCN)", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Korea-Japan Cable Network (KJCN)'>http:\/\/www.cablemap.info\/?c=Korea-Japan Cable Network (KJCN)<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 130.370293, 33.600519 ], [ 130.022138882700006, 34.374669302699999 ], [ 129.464684181600006, 34.902260359099998 ], [ 129.195528, 35.178228 ], [ 129.65382059800001, 34.932124003799998 ], [ 130.4103662638, 34.543896622699997 ], [ 130.628158099800004, 34.200113976700003 ], [ 130.711, 33.937 ] ] } }
-]
-}

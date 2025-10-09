@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Denmark-Sweden 16",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Denmark-Sweden 16", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Denmark-Sweden 16'>http:\/\/www.cablemap.info\/?c=Denmark-Sweden 16<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 12.618836742899999, 56.041472593800002 ], [ 12.6494880932, 56.017572177 ], [ 12.692918286399999, 56.021081687600002 ], [ 12.716667, 56.05 ] ] } }
-]
-}

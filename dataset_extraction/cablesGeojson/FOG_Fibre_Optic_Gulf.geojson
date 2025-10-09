@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "FOG (Fibre Optic Gulf)",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "FOG (Fibre Optic Gulf)", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=FOG (Fibre Optic Gulf)'>http:\/\/www.cablemap.info\/?c=FOG (Fibre Optic Gulf)<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 47.978333, 29.369722 ], [ 48.272410327599999, 29.327236296500001 ], [ 49.648291388600001, 28.1104707324 ], [ 50.518746753800002, 26.603553379800001 ], [ 50.583333, 26.216667 ], [ 51.108410065699999, 26.313401591400002 ], [ 51.454720264700001, 26.257243180700002 ], [ 51.754231788200002, 25.817335630599999 ], [ 51.533333, 25.286667 ], [ 52.428132716, 25.508464372 ], [ 54.112885035700003, 25.414867020900001 ], [ 55.311667, 25.264444 ] ] } }
-]
-}

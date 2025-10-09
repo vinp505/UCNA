@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Moratelindo Batam Dumai Cable (MBDC)",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Moratelindo Batam Dumai Cable (MBDC)", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Moratelindo Batam Dumai Cable (MBDC)'>http:\/\/www.cablemap.info\/?c=Moratelindo Batam Dumai Cable (MBDC)<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 104.136325617400004, 1.1640415137 ], [ 104.063705110599997, 1.2335549788 ], [ 103.802726381499994, 1.055386808 ], [ 103.599464102100001, 0.9073315675 ], [ 103.406239466100004, 0.967557428 ], [ 102.096326999, 1.7856253673 ], [ 101.599463649399993, 1.6927771656 ], [ 101.455804774599997, 1.6860159153 ] ] } }
-]
-}

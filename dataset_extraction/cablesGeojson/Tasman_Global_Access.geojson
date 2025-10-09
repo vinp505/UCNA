@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Tasman Global Access",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Tasman Global Access", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Tasman Global Access'>http:\/\/www.cablemap.info\/?c=Tasman Global Access<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 151.280136762000012, -33.967729046099997 ], [ 151.772058463799993, -34.346154789800003 ], [ 154.646447358800003, -35.412153320400002 ], [ 166.638930828199989, -36.8779013 ], [ 172.920707883599988, -37.3347578132 ], [ 174.291277423, -37.106329556600002 ], [ 174.77231, -36.78919 ] ] } }
-]
-}

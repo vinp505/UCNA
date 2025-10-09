@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Telstra Bass Strait 2",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Telstra Bass Strait 2", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Telstra Bass Strait 2'>http:\/\/www.cablemap.info\/?c=Telstra Bass Strait 2<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 145.716667, -38.633333 ], [ 145.2954, -40.762 ] ] } }
-]
-}

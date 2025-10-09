@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Challenger",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Challenger", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Challenger'>http:\/\/www.cablemap.info\/?c=Challenger<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -71.656502095899995, 41.368834580200001 ], [ -71.263857836400007, 41.273050920800003 ], [ -70.339935073600003, 38.486617191699999 ], [ -68.052126327699995, 36.110815801699999 ], [ -65.481455452700004, 33.411153325299999 ], [ -64.439023437200007, 32.332767236499997 ], [ -64.654509, 32.36173 ] ] } }
-]
-}

@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Melita-1",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Melita-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Melita-1'>http:\/\/www.cablemap.info\/?c=Melita-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 14.390174659, 35.986978532800002 ], [ 14.85, 36.733333 ] ] } }
-]
-}

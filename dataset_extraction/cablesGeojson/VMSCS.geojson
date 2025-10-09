@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "VMSCS",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "VMSCS", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=VMSCS'>http:\/\/www.cablemap.info\/?c=VMSCS<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 14.49417, 35.91528 ], [ 15.191664036500001, 36.112345503599997 ], [ 15.418959882299999, 36.580996731900001 ], [ 15.489257566499999, 37.3448982341 ], [ 15.0985866815, 37.4987205284 ] ] } }
-]
-}

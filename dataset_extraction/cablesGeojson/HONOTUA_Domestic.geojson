@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "HONOTUA Domestic",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "HONOTUA Domestic", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HONOTUA Domestic'>http:\/\/www.cablemap.info\/?c=HONOTUA Domestic<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -151.75, -16.517 ], [ -151.729641451600003, -16.605119074899999 ], [ -151.571284267500005, -16.695910527100001 ], [ -151.464114291199991, -16.709885708800002 ], [ -149.841778716499988, -17.486548559300001 ], [ -149.810352380199987, -17.441245007 ], [ -149.736452360899989, -17.4222421449 ], [ -149.651995196099989, -17.415907857499999 ], [ -149.535866594400005, -17.439133577900002 ], [ -149.474635149899996, -17.470805014700002 ], [ -149.433593, -17.509 ] ] } }
-]
-}

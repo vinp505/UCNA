@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Tata Indicom (TIISCS)",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Tata Indicom (TIISCS)", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Tata Indicom (TIISCS)'>http:\/\/www.cablemap.info\/?c=Tata Indicom (TIISCS)<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 80.287140836500001, 13.060484880600001 ], [ 80.569072579899995, 12.7493538404 ], [ 95.849824350800006, 8.290324143 ], [ 99.897251306900003, 3.8141443313 ], [ 101.0806091882, 2.5107356505 ], [ 103.618826092899994, 0.9843754848 ], [ 103.970776228800005, 1.2538738039 ], [ 103.97, 1.3463618108 ] ] } }
-]
-}

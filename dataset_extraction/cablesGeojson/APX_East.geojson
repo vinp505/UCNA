@@ -1,9 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "APX East",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "APX East", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=APX East'>http:\/\/www.cablemap.info\/?c=APX East<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 151.280136762000012, -33.967729046099997 ], [ 151.479642186900008, -34.5171451426 ], [ 154.487280898199998, -35.773500553700003 ], [ 167.241191889499987, -37.353462661599998 ], [ 172.951898303500002, -37.715140734499997 ], [ 174.474753347199993, -37.467676789899997 ], [ 174.739869, -36.840417 ], [ 175.157579340500007, -36.384347851599998 ], [ 179.174109518300014, -26.009897866199999 ], [ 180.0, -22.0 ] ] } },
-{ "type": "Feature", "properties": { "Name": "APX East", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=APX East'>http:\/\/www.cablemap.info\/?c=APX East<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -180.0, -22.0 ], [ -158.2597539848, 21.3609052533 ], [ -157.983333, 21.467 ], [ -157.560192449099986, 21.639302190900001 ], [ -118.390039065099998, 33.856869363500003 ] ] } }
-]
-}

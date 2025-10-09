@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "UGARIT",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "UGARIT", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=UGARIT'>http:\/\/www.cablemap.info\/?c=UGARIT<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 33.599430963499998, 34.823668824599999 ], [ 33.7719732443, 34.856167777899998 ], [ 35.251463755499998, 34.9922952342 ], [ 35.828214293800002, 34.949307616399999 ], [ 35.873112702100002, 34.891509838300003 ] ] } }
-]
-}

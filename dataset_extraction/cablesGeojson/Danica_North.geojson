@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Danica North",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Danica North", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Danica North'>http:\/\/www.cablemap.info\/?c=Danica North<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 12.58333, 55.73333 ], [ 12.95, 55.766667 ] ] } }
-]
-}

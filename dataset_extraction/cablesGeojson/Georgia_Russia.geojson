@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Georgia-Russia",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Georgia-Russia", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Georgia-Russia'>http:\/\/www.cablemap.info\/?c=Georgia-Russia<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 37.786096789, 44.632479506 ], [ 37.961579320699997, 44.388742328600003 ], [ 39.4471550154, 43.534536304100001 ], [ 39.720278, 43.585278 ], [ 39.7257004581, 43.395263582699997 ], [ 41.201991304800003, 42.364645444499999 ], [ 41.676389, 42.141944 ] ] } }
-]
-}

@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Amerigo Vespucci",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Amerigo Vespucci", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Amerigo Vespucci'>http:\/\/www.cablemap.info\/?c=Amerigo Vespucci<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -68.935888415700006, 12.097815836600001 ], [ -68.8436828249, 12.002031905899999 ], [ -68.605736724300002, 11.9556324162 ], [ -68.223833232900006, 11.960986203499999 ], [ -68.169700495, 12.100184672399999 ], [ -68.176130490899993, 12.1529919207 ], [ -68.205586730099995, 12.159428929400001 ] ] } }
-]
-}

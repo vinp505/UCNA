@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Americas-1 North",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Americas-1 North", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Americas-1 North'>http:\/\/www.cablemap.info\/?c=Americas-1 North<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -80.391111, 27.641944 ], [ -77.341777321899997, 27.767016164200001 ], [ -68.697033654099997, 23.0406131007 ], [ -66.379571506800005, 20.997587260300001 ], [ -65.190347510199999, 19.488187572299999 ], [ -64.9636743354, 18.379469734200001 ] ] } }
-]
-}
