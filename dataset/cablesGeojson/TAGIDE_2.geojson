@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "TAGIDE-2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "TAGIDE-2", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=TAGIDE-2'>http:\/\/www.cablemap.info\/?c=TAGIDE-2<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -9.1128266221, 38.435653244100003 ], [ -9.282039940200001, 38.212569981800002 ], [ -9.523178337399999, 38.409288148 ], [ -9.6691305252, 38.8344532168 ], [ -9.383571896899999, 43.060720915499999 ], [ -9.155124994299999, 43.466848742400003 ], [ -6.591443087, 46.252631805100002 ], [ -4.4338890065, 47.655041957400002 ], [ -4.3443666667, 47.8395 ] ] } }
+]
+}

@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Pangea North",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Pangea North", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Pangea North'>http:\/\/www.cablemap.info\/?c=Pangea North<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -1.0796746709, 54.6246225477 ], [ 7.0096471341, 56.947231046 ], [ 8.115287910699999, 56.644071478199997 ], [ 8.168786658, 56.6084056467 ], [ 8.008290416199999, 56.367661284100002 ], [ 8.035039789800001, 56.091251089899998 ], [ 8.1509537422, 56.011002969099998 ] ] } }
+]
+}

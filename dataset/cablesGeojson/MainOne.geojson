@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "MainOne",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "MainOne", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MainOne'>http:\/\/www.cablemap.info\/?c=MainOne<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -0.204416667, 5.541716667 ], [ -1.0948978677, 3.3279704458 ] ] } },
+{ "type": "Feature", "properties": { "Name": "MainOne", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MainOne'>http:\/\/www.cablemap.info\/?c=MainOne<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 3.428333333, 6.422366667 ], [ 2.7639266845, 3.3386055101 ], [ -4.7743064379, 3.330936615 ], [ -3.935106667, 5.244605 ] ] } },
+{ "type": "Feature", "properties": { "Name": "MainOne", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MainOne'>http:\/\/www.cablemap.info\/?c=MainOne<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -16.858349, 28.379017 ], [ -15.392422567300001, 29.330634741800001 ] ] } },
+{ "type": "Feature", "properties": { "Name": "MainOne", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MainOne'>http:\/\/www.cablemap.info\/?c=MainOne<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -7.6199755334, 33.620355264899999 ], [ -12.940323576600001, 34.025823957900002 ] ] } },
+{ "type": "Feature", "properties": { "Name": "MainOne", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MainOne'>http:\/\/www.cablemap.info\/?c=MainOne<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -12.940323576600001, 34.025823957900002 ], [ -16.086852127499998, 28.000966488300001 ], [ -16.746391172399999, 26.738105313799998 ], [ -17.957004795500001, 24.3909972692 ], [ -18.472009075, 22.762812593900001 ], [ -18.491642481300001, 20.9435989081 ], [ -18.210250947700001, 18.164850624700001 ], [ -17.448545, 14.67261333 ], [ -17.9035467452, 11.1438802281 ], [ -17.7268567731, 9.541058534499999 ], [ -17.405883855399999, 8.3342875842 ], [ -16.562065544500001, 6.9106690417 ], [ -14.966272807699999, 5.2681439835 ], [ -13.319288934899999, 4.1321442265 ], [ -11.4354339636, 3.330936615 ], [ -4.7743064379, 3.330936615 ] ] } },
+{ "type": "Feature", "properties": { "Name": "MainOne", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MainOne'>http:\/\/www.cablemap.info\/?c=MainOne<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -9.2114833333, 38.60635 ], [ -11.0809536947, 38.425534510399999 ], [ -12.656355871, 34.569554905899999 ], [ -12.940323576600001, 34.025823957900002 ] ] } }
+]
+}

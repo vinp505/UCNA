@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "ALBA-1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "ALBA-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=ALBA-1'>http:\/\/www.cablemap.info\/?c=ALBA-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -66.933056, 10.6 ], [ -67.225327103799998, 10.977885283099999 ], [ -67.920129717600005, 12.0819551898 ], [ -74.906227230699997, 16.945573485699999 ], [ -75.401155119899997, 17.954464952199999 ], [ -75.562958468299996, 19.3250344916 ], [ -75.708901, 19.96 ], [ -77.116667, 18.416667 ] ] } }
+]
+}

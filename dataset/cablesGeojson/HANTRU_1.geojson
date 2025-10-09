@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "HANTRU-1",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "HANTRU-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HANTRU-1'>http:\/\/www.cablemap.info\/?c=HANTRU-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 158.216667, 6.85 ], [ 156.669737146599999, 10.319734711700001 ] ] } },
+{ "type": "Feature", "properties": { "Name": "HANTRU-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HANTRU-1'>http:\/\/www.cablemap.info\/?c=HANTRU-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 167.031637028700004, 8.814603980199999 ], [ 171.266667, 7.066667 ] ] } },
+{ "type": "Feature", "properties": { "Name": "HANTRU-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HANTRU-1'>http:\/\/www.cablemap.info\/?c=HANTRU-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 167.031637028700004, 8.814603980199999 ], [ 167.733333, 8.717 ], [ 167.754104110700013, 8.721350044099999 ], [ 167.763027089500014, 8.756328120899999 ], [ 167.756602544799989, 8.779170946500001 ], [ 167.737222, 8.780278 ] ] } },
+{ "type": "Feature", "properties": { "Name": "HANTRU-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HANTRU-1'>http:\/\/www.cablemap.info\/?c=HANTRU-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 166.794522181100007, 8.8475860035 ], [ 167.031637028700004, 8.814603980199999 ] ] } },
+{ "type": "Feature", "properties": { "Name": "HANTRU-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HANTRU-1'>http:\/\/www.cablemap.info\/?c=HANTRU-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 156.669737146599999, 10.319734711700001 ], [ 166.798411181099993, 8.9108640035 ], [ 167.031637028700004, 8.814603980199999 ] ] } },
+{ "type": "Feature", "properties": { "Name": "HANTRU-1", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=HANTRU-1'>http:\/\/www.cablemap.info\/?c=HANTRU-1<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 144.690833, 13.460833 ], [ 144.515435394399987, 13.341723178100001 ], [ 144.658203054799998, 13.189437673700001 ], [ 147.985900017700004, 11.5276325791 ], [ 156.669737146599999, 10.319734711700001 ] ] } }
+]
+}

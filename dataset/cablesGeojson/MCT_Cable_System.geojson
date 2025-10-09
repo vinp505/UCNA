@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "MCT Cable System",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "MCT Cable System", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MCT Cable System'>http:\/\/www.cablemap.info\/?c=MCT Cable System<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 102.442369341800003, 10.1167915638 ], [ 103.360532710300006, 8.4345621753 ], [ 103.631791265, 6.1360028436 ], [ 103.631791265, 4.3656838553 ], [ 103.3929024, 4.127 ] ] } },
+{ "type": "Feature", "properties": { "Name": "MCT Cable System", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MCT Cable System'>http:\/\/www.cablemap.info\/?c=MCT Cable System<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 103.5, 10.633333 ], [ 102.442369341800003, 10.1167915638 ] ] } },
+{ "type": "Feature", "properties": { "Name": "MCT Cable System", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=MCT Cable System'>http:\/\/www.cablemap.info\/?c=MCT Cable System<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 101.278, 12.6816485 ], [ 101.318955167300004, 12.1750748764 ], [ 102.442369341800003, 10.1167915638 ] ] } }
+]
+}

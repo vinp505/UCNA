@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "CBUS",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "CBUS", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=CBUS'>http:\/\/www.cablemap.info\/?c=CBUS<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -64.746347484099999, 32.311583920399997 ], [ -64.733852039300004, 32.290063987800004 ], [ -64.718579829099994, 32.261602141300003 ], [ -64.575605340600006, 18.458356261199999 ] ] } }
+]
+}

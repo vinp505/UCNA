@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Emerald Bridge Fibres",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Emerald Bridge Fibres", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Emerald Bridge Fibres'>http:\/\/www.cablemap.info\/?c=Emerald Bridge Fibres<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ -6.2, 53.383333 ], [ -6.1002598009, 53.340649652899998 ], [ -6.0051628862, 53.3231828726 ], [ -5.774213236, 53.420220540700001 ], [ -5.5316190656, 53.480383895 ], [ -5.3181361957, 53.519198962200001 ], [ -5.0289639447, 53.497850675199999 ], [ -4.8814666891, 53.455154101300003 ], [ -4.7048581331, 53.371701706700001 ], [ -4.6328, 53.3088 ] ] } }
+]
+}

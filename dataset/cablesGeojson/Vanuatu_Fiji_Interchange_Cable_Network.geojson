@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Vanuatu-Fiji Interchange Cable Network",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Vanuatu-Fiji Interchange Cable Network", "description": "<hr><p>More Info at <a href='http:\/\/www.cablemap.info\/?c=Vanuatu-Fiji Interchange Cable Network'>http:\/\/www.cablemap.info\/?c=Vanuatu-Fiji Interchange Cable Network<\/a>" }, "geometry": { "type": "LineString", "coordinates": [ [ 178.462413276400014, -18.136843653100001 ], [ 178.464635570000013, -18.138560488 ], [ 178.463982578899987, -18.163932661699999 ], [ 178.468669811500007, -18.1834775212 ], [ 178.394141447700008, -18.348702644500001 ], [ 178.072583615300005, -18.746570439 ], [ 177.526059656699999, -19.0623892461 ], [ 177.018772147800007, -19.161885762200001 ], [ 176.197410837, -19.466347481 ], [ 171.492728913799994, -18.510898593 ], [ 168.499889315199994, -17.9913806725 ], [ 168.197929119700007, -17.867682970200001 ], [ 168.215665811799994, -17.791785465 ], [ 168.290135515299994, -17.7011846869 ] ] } }
+]
+}
