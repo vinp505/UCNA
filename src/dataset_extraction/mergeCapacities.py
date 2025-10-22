@@ -36,4 +36,4 @@ finalDf["capacity"] = finalDf["capacity"].fillna(0)
 
 finalDf.to_csv(str(_EXTRACT_DIR / "cablesWithCapacity.csv"), index=False)
 
-print(f"Capacity matched for {np.sum(finalDf["capacity"] != 0.0)} cables.")#we have the capacities for 109 out of the 245 cables
+print(f"Capacity matched for {np.sum(finalDf['capacity'] != 0.0)} cables.")#we have the capacities for 109 out of the 245 cables
