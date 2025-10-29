@@ -1,4 +1,5 @@
 name,capacity
+<<<<<<< HEAD
 FLAG North Asia Loop (FNAL),0.0
 Unity,7680.0
 BCS East-West Interlink,160.0
@@ -264,3 +265,270 @@ HUGO,60.0
 Fehmarn Belt,0.0
 BCS East,240.0
 Balkans-Italy Network,40.0
+=======
+JONAH,0.0
+Suriname-Guyana (SG-SCS),0.0
+Denmark-Sweden 15,8.0
+ARCOS-1,960.0
+TURCYOS-1,0.0
+ITUR,1659.0
+AKORN Alaska-Oregon,0.0
+NorSea Com 1,0.0
+ALPAL-2,160.0
+Gondwana-1,640.0
+Islalink,0.0
+TGN Atlantic,0.0
+CIRCE North,0.0
+BALTICA,60.0
+Alonso de Ojeda,20.0
+Balkans-Italy Network,40.0
+BAHAMAS-2,0.0
+Telstra Bass Strait 2,0.0
+Arctic Fibre,0.0
+EAC,2500.0
+ATLANTIS-2,40.0
+Italy-Albania,1244.0
+Americas-1 South,1.0
+Ventspils-Farosund-Stockholm,240.0
+ACE,5120.0
+ESAT 2,880.0
+SEA-ME-WE 3,960.0
+Tasman-2,1.0
+COLUMBUS III,0.0
+Denmark-Poland 2,3.0
+FLAG North Asia Loop (FNAL),0.0
+Gulf Bridge International,0.0
+CC5,0.0
+CORSAR (Corsica- Sardinia),0.0
+Corfu-Bar,0.0
+GlobeNet,7168.0
+South American Crossing (SAC,0.0
+Atlas Offshore,320.0
+ESAT 1,80.0
+SLT-Dhiraagu,0.0
+Vanuatu-Fiji Interchange Cable Network,0.0
+SEAS,0.0
+Asia-Submarine Express (ASE),0.0
+Mid-Atlantic Crossing (MAC),0.0
+Caucasus Cable System,1966.0
+JAKABARE,1280.0
+PAN AM,0.0
+MAYA-1,83.0
+LION2,0.0
+SAT-3,0.0
+Georgia-Russia,640.0
+Italy-Greece,2.0
+HONOTUA Domestic,0.0
+Bharat Lanka Cable System,160.0
+HANTRU-1,0.0
+KAFOS,1.0
+G-P,35.0
+Hibernia Express,0.0
+Tasman Global Access,0.0
+TAT-14,3200.0
+Moana,0.0
+FLAG Alcatel-Lucent Optical Network (FALCON),1250.0
+Tonga-Fiji,0.0
+TPC-5CN,0.0
+UNISUR,1.0
+BCS East-West Interlink,160.0
+Emerald Bridge Fibres,0.0
+HAWK,0.0
+Tamares Telecom,0.0
+Loukkos,0.0
+ALETAR,0.0
+America Movil-1,0.0
+ECFS,1.0
+EIG,3932.0
+Far East Submarine Cable System,0.0
+Sirius South,0.0
+Trident,0.0
+Russia-Japan Cable Network (RJCN),0.0
+TAGIDE-2,0.0
+Bicentenario,3932.0
+FARICE-1,11000.0
+BT-MT1,0.0
+FLAG Atlantic (FA-1),0.0
+Denmark-Norway 5,2.0
+SAS (Samoa - American Samoa),0.0
+Alaska United - East,0.0
+APHRODITE-2,0.0
+EESF-2 (Finland-Estonia 2),0.0
+Italy-Libya,120.0
+Pencan-6,0.0
+ULYSSES 2,0.0
+Hawaiki,0.0
+Japan-US,0.0
+LION,0.0
+ROTACS,0.0
+WARF,0.0
+Australia-Japan Cable,1000.0
+Telstra Endeavour,1280.0
+Trapani-Kelibia (KELTRA-2),0.0
+Thailand-Vietnam-Hong Kong (T-V-H),0.0
+BARSAV,5.0
+Scandinavian Ring South,240.0
+Antilles Crossing,0.0
+TGN Northern Europe,3932.0
+Kuwait-Iran,480.0
+Pangea Baltic Loop,0.0
+UK-Germany 6,20.0
+Finland-Sweden 4 (SFS-4),0.0
+Svalbard Undersea Cable System,0.0
+Moratelindo Batam Dumai Cable (MBDC),0.0
+AEConnect,0.0
+SAS-1,1280.0
+CanaLink,0.0
+Fibralink,320.0
+ADRIA-1,0.0
+UK-Channel Isles 7,0.0
+Australia-Singapore Cable,0.0
+Danica South,240.0
+Global Carribean Network (GCN),0.0
+CeltixConnect,0.0
+Hokkaido-Sakhalin Cable System (HSCS),0.0
+Sweden-Finland Link (SFL),0.0
+Unity,7680.0
+Botnia,14.0
+CC4,4.0
+FLAG ATLANTIC NORTH,0.0
+Apollo,3200.0
+HANNIBAL,3200.0
+COLUMBUS II,0.0
+PC-1,640.0
+TGN Western Europe,0.0
+APG (Asia-Pacific Gateway),0.0
+Trans-Pacific Express,0.0
+MedNautilus,3840.0
+Sirius North,0.0
+CADMOS,1.0
+ASH (American Samoa - Hawaii),0.0
+MINERVA,10.0
+SACS,0.0
+APCN,5.0
+UGARIT,1.0
+SAm-1,1920.0
+Americas II,0.0
+SAT-2,1.0
+PPC-1,0.0
+AC-1,120.0
+Danica North,960.0
+Basslink Telecom,0.0
+BCS North I,245.0
+Pangea North,7200.0
+FARLAND,18.0
+BRICS Cable,0.0
+Amerigo Vespucci,15.0
+APCN2,2560.0
+CFX-1,150.0
+Dumai-Melaka,0.0
+Estonia-Sweden 1,40.0
+Ariane 2,0.0
+MainOne,0.0
+Tata Indicom (TIISCS),0.0
+APX East,0.0
+BCS East,240.0
+i2i,8400.0
+SEA-ME-WE-4,0.0
+ULYSSES,0.0
+LEV,20.0
+TGN Transpacific,0.0
+BSFOCS,20.0
+SHEFA-2,570.0
+WASACE,0.0
+BERYTAR,5.0
+Telstra Bass Strait 1,0.0
+VMSCS,60.0
+FLAG Europe Asia (FEA),0.0
+AAE-1 (Asia Africa Europe),0.0
+HONOTUA International,0.0
+MONET,0.0
+TURCYOS-2,0.0
+LANIS 2,0.0
+Melita-1,0.0
+EESF-3 (Finland--Estonia 3),0.0
+TSE-1,0.0
+Kodiak Kenai,0.0
+Qatar-UAE Submarine Cable System,0.0
+TURMEOS-1,0.0
+Denmark-Sweden 16,6.0
+Seabras-1,0.0
+I-ME-WE,0.0
+FOG (Fibre Optic Gulf),0.0
+Danice submarine cable,34400.0
+Alexandros,0.0
+ALBA-1,5243.0
+BBG (Bay of Bengal Gateway),0.0
+MCT Cable System,0.0
+CANTAT-3,8.0
+RIOJA-3,0.0
+APX West,0.0
+Kategat-1,0.0
+Thailand-Indonesia-Singapore (TIS),0.0
+AAG (Asia-American Gateway),0.0
+CUCN,0.0
+SAFE,440.0
+Med Cable,0.0
+NorthStar,0.0
+TEAMs,0.0
+TGN-Gulf,0.0
+CANUS-1,3.0
+MENA,0.0
+PCCS,0.0
+Tangerine,240.0
+Alaska United - West,0.0
+CIOS,1.0
+SEA-ME-WE-5,0.0
+Tata TGN Intra-Asia (TGN-IA),0.0
+SEAK,0.0
+Matrix cable system,0.0
+Pishgaman Oman Iran (POI),0.0
+GO-1,20.0
+AC-2,640.0
+Flores-Covo Cable System,0.0
+Denmark-Norway 6,1695.0
+CIRCE South,480.0
+Challenger,0.0
+RNAL,0.0
+Estepona-Tetuan,0.0
+BDNSi,0.0
+SOLAS,5.0
+TE North,0.0
+RJK,1.0
+HUGO,60.0
+BT-Manx NI,480.0
+Hibernia Atlantic,1920.0
+Moratelindo International Cable (MIC-1),0.0
+Transworld (TWA-1),0.0
+APNG-2,1.0
+KINYRAS,0.0
+BICS,1228.0
+EASSY,0.0
+Greenland Connect,2560.0
+Korea-Japan Cable Network (KJCN),0.0
+LIME,0.0
+Cayman-Jamaica,0.0
+SJC,0.0
+Fehmarn Belt,0.0
+WACS,5120.0
+Americas-1 North,3.0
+SAex,0.0
+SMPR-1,0.0
+Pan-American Crossing (PAC),0.0
+Scandinavian Ring North,240.0
+SEACOM,1280.0
+ANTILLAS I,4.0
+Silphium,0.0
+Trinidad-Curaco,0.0
+BCS North II,240.0
+GLO1,0.0
+Concerto 1,1000.0
+Pangea South,7200.0
+Gemini,480.0
+Denmark-Germany 2,20.0
+BP Fiber Backbone,0.0
+CBUS,480.0
+C-Lion,0.0
+Southern Cross,0.0
+LANIS 1,0.0
+>>>>>>> 343e4b03e11a176fde4c22136a56a62b667447b2
