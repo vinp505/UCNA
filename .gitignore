@@ -1,3 +1,8 @@
+# our stuff:
+dataExtracted/*.csv
+dataExtracted/*.graphml
+visualizations/*.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
