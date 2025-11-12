@@ -8,23 +8,24 @@ _PROJ_DIR = _FILE_DIR.parent#obtain main project directory
 _DATA_DIR = _PROJ_DIR / "dataset"
 _EXTRACT_DIR = _PROJ_DIR / "dataExtracted"
 
-nameSet = set()
+def extractCableNames():
+    nameSet = set()
 
-# Loop through all files in the directory
-for filename in os.listdir(str(_DATA_DIR / "cablesGeojson")):
-    if filename.endswith(".geojson"):
-        filepath = os.path.join(str(_DATA_DIR / "cablesGeojson"), filename)
+    # Loop through all files in the directory
+    for filename in os.listdir(str(_DATA_DIR / "cablesGeojson")):
+        if filename.endswith(".geojson"):
+            filepath = os.path.join(str(_DATA_DIR / "cablesGeojson"), filename)
 
-        # Load geojson file
-        with open(filepath, "r", encoding="utf-8") as f:
-            data = json.load(f)
+            # Load geojson file
+            with open(filepath, "r", encoding="utf-8") as f:
+                data = json.load(f)
 
-        # Extract cable name
-        for feature in data["features"]:
-            name = feature["properties"].get("Name", "Unknown")
+            # Extract cable name
+            for feature in data["features"]:
+                name = feature["properties"].get("Name", "Unknown")
 
-            nameSet.add(name)
+                nameSet.add(name)
 
-#write to csv file
-df = pd.DataFrame(nameSet, columns=["name"])
-df.to_csv(str(_EXTRACT_DIR / "all_cables.csv"), index=False)
+    #write to csv file
+    df = pd.DataFrame(nameSet, columns=["name"])
+    df.to_csv(str(_EXTRACT_DIR / "all_cables.csv"), index=False)
