@@ -1,6 +1,14 @@
 import networkx as nx
 from itertools import combinations
-G = nx.read_graphml("dataExtracted/THE_GRAPH.graphml")
+
+from pathlib import Path
+
+_FILE_DIR = Path(__file__).resolve().parent.parent#obtain directory of this file
+_PROJ_DIR = _FILE_DIR.parent#obtain main project directory
+_DATA_DIR = _PROJ_DIR / "dataset"
+_EXTRACT_DIR = _PROJ_DIR / "dataExtracted"
+
+G = nx.read_graphml(str(_EXTRACT_DIR / "THE_GRAPH.graphml"))
 def metanodes(G, meta_key='meta'):
     return [n for n ,d in G.nodes(data=True) if d.get(meta_key) is True ]
 
