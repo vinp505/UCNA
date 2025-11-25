@@ -1,5 +1,6 @@
 import networkx as nx
 from itertools import combinations
+import pandas as pd
 
 from pathlib import Path
 
@@ -49,4 +50,25 @@ a, b = next(iter(pair_widest))
 info = pair_widest[(a, b)]
 print("Pair:", a, b, "capacity:", info["capacity"], "path:", info["path"])
 
+def check_drop_outs(avg_countryInit:dict, avg_country:dict):
+    #Greg
+    return
 
+def visualizeResults(avgConnectivityDf:pd.DataFrame, rankDf:pd.DataFrame):
+    #Vincenzo
+    return
+
+def simulateAttacks(G: nx.Graph):
+    #get the average connectivity of each country and the first most important edge
+    _, avg_countryInit, mostImportantEdge = widest_path_all_pairs(G)
+    avgConnectivities = []
+    while True:
+        G.remove_edge(mostImportantEdge)#remove most important edge
+        _, avg_country, mostImportantEdge = widest_path_all_pairs(G)#repeat
+        #now check which countries dropped out and write that to a log file
+        check_drop_outs(avg_countryInit, avg_country)
+        avgConnectivities.append(avg_country)
+        break
+    avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
+    rankDf = avgConnectivityDf.rank(axis=1, ascending=False, method="first").copy()#handle ties randomly (order of array)
+    visualizeResults(avgConnectivityDf, rankDf)
