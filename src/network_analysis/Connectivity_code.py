@@ -43,7 +43,7 @@ def widest_path_all_pairs(G,cap_key='capacity', meta_key='meta'):
        #Most important edge
     max_edge = max(T.edges(), key=lambda e: T[e[0]][e[1]]['traffic'])
     max_value = T[max_edge[0]][max_edge[1]]['traffic']
-    return pair_widest,avg_country,  max_edge , max_value
+    return pair_widest, avg_country,  max_edge , max_value
 
 pair_widest, avg_country, most_important_edge ,value= widest_path_all_pairs(G)
 
@@ -60,9 +60,22 @@ for node, score in top10:
 
 print(most_important_edge)
 print(value)
-def check_drop_outs(avg_countryInit:dict, avg_country:dict):
-    #Greg
-    return
+def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, threshold: float = 0.5, already_dropped: set = None, logfile: str = str(_EXTRACT_DIR / "dropouts.txt")):
+    #Initialize already_dropped set if not provided
+    if already_dropped is None:
+        already_dropped = set()
+    #clear logfile at first iteration  
+    if iteration == 1:
+        open(logfile, "w").close()
+    #log dropouts
+    with open(logfile, 'a') as f:
+        for country, init_cap in avg_countryInit.items():
+            current_cap = avg_country.get(country, 0.0)
+            if (current_cap / init_cap) < threshold and country not in already_dropped:
+                f.write(f"Iteration {iteration}: Country {country} dropped out (from {init_cap:.2f} to {current_cap:.2f})\n")
+                already_dropped.add(country)
+
+    return already_dropped
 
 def visualizeResults(avgConnectivityDf:pd.DataFrame, rankDf:pd.DataFrame):
     #Vincenzo
@@ -70,14 +83,16 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, rankDf:pd.DataFrame):
 
 def simulateAttacks(G: nx.Graph):
     #get the average connectivity of each country and the first most important edge
-    _, avg_countryInit, mostImportantEdge = widest_path_all_pairs(G)
+    _, avg_countryInit, mostImportantEdge, _ = widest_path_all_pairs(G)
     avgConnectivities = []
+    iteration = 1
     while True:
         G.remove_edge(mostImportantEdge)#remove most important edge
         _, avg_country, mostImportantEdge = widest_path_all_pairs(G)#repeat
         #now check which countries dropped out and write that to a log file
-        check_drop_outs(avg_countryInit, avg_country)
+        already_dropped = check_drop_outs(avg_countryInit, avg_country, iteration=iteration, threshold=0.5, already_dropped=already_dropped)
         avgConnectivities.append(avg_country)
+        iteration += 1
         break
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
     rankDf = avgConnectivityDf.rank(axis=1, ascending=False, method="first").copy()#handle ties randomly (order of array)
