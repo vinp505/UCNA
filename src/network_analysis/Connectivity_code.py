@@ -1,6 +1,15 @@
 import networkx as nx
 from itertools import combinations
-G = nx.read_graphml("dataExtracted/THE_GRAPH.graphml")
+import pandas as pd
+
+from pathlib import Path
+
+_FILE_DIR = Path(__file__).resolve().parent.parent#obtain directory of this file
+_PROJ_DIR = _FILE_DIR.parent#obtain main project directory
+_DATA_DIR = _PROJ_DIR / "dataset"
+_EXTRACT_DIR = _PROJ_DIR / "dataExtracted"
+
+G = nx.read_graphml(str(_EXTRACT_DIR / "THE_GRAPH.graphml"))
 def metanodes(G, meta_key='meta'):
     return [n for n ,d in G.nodes(data=True) if d.get(meta_key) is True ]
 
@@ -51,4 +60,25 @@ for node, score in top10:
 
 print(most_important_edge)
 print(value)
+def check_drop_outs(avg_countryInit:dict, avg_country:dict):
+    #Greg
+    return
 
+def visualizeResults(avgConnectivityDf:pd.DataFrame, rankDf:pd.DataFrame):
+    #Vincenzo
+    return
+
+def simulateAttacks(G: nx.Graph):
+    #get the average connectivity of each country and the first most important edge
+    _, avg_countryInit, mostImportantEdge = widest_path_all_pairs(G)
+    avgConnectivities = []
+    while True:
+        G.remove_edge(mostImportantEdge)#remove most important edge
+        _, avg_country, mostImportantEdge = widest_path_all_pairs(G)#repeat
+        #now check which countries dropped out and write that to a log file
+        check_drop_outs(avg_countryInit, avg_country)
+        avgConnectivities.append(avg_country)
+        break
+    avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
+    rankDf = avgConnectivityDf.rank(axis=1, ascending=False, method="first").copy()#handle ties randomly (order of array)
+    visualizeResults(avgConnectivityDf, rankDf)
