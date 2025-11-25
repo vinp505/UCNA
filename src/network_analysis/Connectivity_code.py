@@ -10,6 +10,7 @@ from pathlib import Path
 _FILE_DIR = Path(__file__).resolve().parent.parent#obtain directory of this file
 _PROJ_DIR = _FILE_DIR.parent#obtain main project directory
 _DATA_DIR = _PROJ_DIR / "dataset"
+_DATAEXTR_DIR = _PROJ_DIR / "dataExtracted"
 _EXTRACT_DIR = _PROJ_DIR / "dataExtracted"
 _VISUAL_DIR = _PROJ_DIR / "visualizations"
 
@@ -177,7 +178,7 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, rankDf:pd.DataFrame, from_s
     else:
         name = "connectivity_top10_slices.gif"
 
-    imageio.mimsave(name, frames, fps=2)
+    imageio.mimsave(str(_VISUAL_DIR / name), frames, fps=2)
 
 def simulateAttacks(G: nx.Graph):
     #get the average connectivity of each country and the first most important edge
@@ -194,6 +195,6 @@ def simulateAttacks(G: nx.Graph):
         break
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
     rankDf = avgConnectivityDf.rank(axis=1, ascending=False, method="first").copy()#handle ties randomly (order of array)
-    avgConnectivityDf.to_csv("../dataExtracted/avgConnectivity.csv", index= False)
-    rankDf.to_csv("../dataExtracted/rank.csv", index= False)
+    avgConnectivityDf.to_csv(str(_DATAEXTR_DIR / "avgConnectivity.csv"), index= False)
+    rankDf.to_csv(str(_DATAEXTR_DIR / "rank.csv"), index= False)
     visualizeResults(avgConnectivityDf, rankDf)
