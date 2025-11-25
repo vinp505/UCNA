@@ -1,13 +1,17 @@
 import networkx as nx
 from itertools import combinations
 import pandas as pd
-
+import numpy as np
+import matplotlib.pyplot as plt
+import imageio
+import seaborn as sns
 from pathlib import Path
 
 _FILE_DIR = Path(__file__).resolve().parent.parent#obtain directory of this file
 _PROJ_DIR = _FILE_DIR.parent#obtain main project directory
 _DATA_DIR = _PROJ_DIR / "dataset"
 _EXTRACT_DIR = _PROJ_DIR / "dataExtracted"
+_VISUAL_DIR = _PROJ_DIR / "visualizations"
 
 G = nx.read_graphml(str(_EXTRACT_DIR / "THE_GRAPH.graphml"))
 def metanodes(G, meta_key='meta'):
@@ -77,9 +81,103 @@ def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, thre
 
     return already_dropped
 
-def visualizeResults(avgConnectivityDf:pd.DataFrame, rankDf:pd.DataFrame):
-    #Vincenzo
-    return
+def get_top10(avgConnectivityDf:pd.DataFrame, rankDf:pd.DataFrame, n: int, from_start= False):
+    
+    # set start of the slicing
+    if from_start:
+        start = 0
+    else:
+        start = n-5
+    
+    # only keep countries that are in the top10 at any point
+    for col in avgConnectivityDf.columns:
+        if min(rankDf[col].values) > 10:
+            rankDf.drop(col, axis= 1, inplace= True)
+            avgConnectivityDf.drop(col, axis= 1, inplace= True)
+
+    # only get data for chosen period
+    idx = list(range(start, n))
+    conn_df = pd.DataFrame(avgConnectivityDf.loc[idx])
+
+    # sort by the last relevant iteration so that the legend is in order
+    return conn_df.T.sort_values(by= n-1, axis= 0, ascending= False)
+
+def visualizeResults(avgConnectivityDf:pd.DataFrame, rankDf:pd.DataFrame, from_start= False):
+    
+    # list to store frames, one frame per slider value
+    frames = []
+    slider_values = range(5, len(avgConnectivityDf)+1)
+
+    # map country to color
+    columns = avgConnectivityDf.columns
+    colors = sns.color_palette("turbo", len(columns))
+
+    col_dict = {columns[i] : colors[i] for i in range(len(columns))}
+
+    # iterate through slider values
+    for n in slider_values:
+
+        # new plot each time
+        fig, ax = plt.subplots(figsize= (10, 7))
+        
+        # get entries    
+        conn_df = get_top10(avgConnectivityDf, rankDf, n, from_start)
+        
+        # set start
+        if from_start:
+            start = 0
+        else:
+            start = n-5
+
+        ax.grid(alpha= 0.3)
+        
+        # keep track of minimum connectivity to adjust graph lines
+        min_pos_conn = np.inf
+        
+        # plot lines
+        idx = list(range(start, n))
+        for i, (_, r) in enumerate(conn_df.iterrows()):
+            
+            # use top10 of final iteration to label countries
+            if i < 10:
+                min_conn_row = r.values.min()
+                if (min_conn_row <= min_pos_conn):
+                    min_pos_conn = min_conn_row
+                l = f"{i+1}. {r.name}"
+            
+            # no label for countries outside of the top10
+            else:
+                l = None
+
+            ax.plot(list(range(len(idx))), r.values, marker= 'o', label= l, c= col_dict[r.name])
+        
+        ax.set_xticks(list(range(len(idx))), idx)
+        ax.set_ylim(bottom= min_pos_conn-1)
+        ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
+
+        ax.set_ylabel("Connectivity")
+        ax.set_xlabel("Iteration")
+        ax.set_title(f"Top 10 countries by connectivity.\nFrom iteration {start} to {n-1}.")
+        fig.tight_layout()
+ 
+        # save frame
+        fig.canvas.draw()
+        renderer = fig.canvas.get_renderer()
+
+        # magic ???
+        image = np.asarray(renderer.buffer_rgba())[:, :, :3]
+
+        # store frame, close plot
+        frames.append(image)
+        plt.close(fig)
+
+    # save gif
+    if from_start:
+        name = "connectivity_top10_fromstart.gif"
+    else:
+        name = "connectivity_top10_slices.gif"
+
+    imageio.mimsave(name, frames, fps=2)
 
 def simulateAttacks(G: nx.Graph):
     #get the average connectivity of each country and the first most important edge
@@ -96,4 +194,6 @@ def simulateAttacks(G: nx.Graph):
         break
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
     rankDf = avgConnectivityDf.rank(axis=1, ascending=False, method="first").copy()#handle ties randomly (order of array)
+    avgConnectivityDf.to_csv("../dataExtracted/avgConnectivity.csv", index= False)
+    rankDf.to_csv("../dataExtracted/rank.csv", index= False)
     visualizeResults(avgConnectivityDf, rankDf)
