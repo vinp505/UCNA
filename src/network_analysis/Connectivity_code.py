@@ -109,8 +109,9 @@ def get_top10(avgConnectivityDf:pd.DataFrame, n: int, relative= False):
     # sort by the last relevant iteration so that the legend is in order
     return conn_df.T.sort_values(by= n-1, axis= 0, ascending= False)
 
-def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, relative= False):
+def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= False):
     
+    rand = "random" if random else "targeted"
     # list to store frames, one frame per slider value
     frames = []
     slider_values = range(30, len(avgConnectivityDf)+1)
@@ -188,23 +189,23 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, relative= False):
 
     # save gif
     if relative:
-        name = f"connectivity_top10_{mode}_relative.gif"
+        name = f"connectivity_top10_{mode}_{rand}_relative.gif"
     else:
-        name = f"connectivity_top10_{mode}_absolute.gif"
+        name = f"connectivity_top10_{mode}_{rand}_absolute.gif"
 
     imageio.mimsave(name, frames, fps=2)
 
-def simulateAttacks(G: nx.MultiGraph, mode: Literal['targeted', 'random', 'ping']= "targeted", logfile: str = str(_EXTRACT_DIR / "iterations.txt")):
+def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "targeted", random: bool= False, logfile: str = str(_EXTRACT_DIR / "iterations.txt")):
     
-    if mode == 'targeted':
-        #get the average connectivity of each country and the first most important edge
-        _, avg_countryInit, maxEdge, _ = widest_path_all_pairs(G)
+    func_dict = {
+        'connectivity' : widest_path_all_pairs,
+        'ping' : "placeholder"
+    }
+    func = func_dict[mode]
     
-    if mode == 'ping':
-        pass  # Andrei, add function call here
+    #get the average connectivity of each country and the first most important edge
+    _, avg_countryInit, maxEdge, _ = func(G, random)
 
-    if mode == 'random':
-        pass  # Greg, add function call here
 
     avgConnectivities = []
     iteration = 1
@@ -215,16 +216,17 @@ def simulateAttacks(G: nx.MultiGraph, mode: Literal['targeted', 'random', 'ping'
             f.write(f"{statement}\n")
         print(statement)
         G.remove_edge(maxEdge[0], maxEdge[1], key= maxEdge[2])#remove most important edge
-        _, avg_country, maxEdge, _ = widest_path_all_pairs(G)#repeat
+        _, avg_country, maxEdge, _ = func(G, random)#repeat
         #now check which countries dropped out and write that to a log file
         already_dropped = check_drop_outs(avg_countryInit, avg_country, iteration=iteration, threshold=0.5, already_dropped=already_dropped)
         avgConnectivities.append(avg_country)
         iteration += 1
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
-    avgConnectivityDf.to_csv(str(_EXTRACT_DIR / f"avgConnectivity_{mode}.csv"), index= False)
-    visualizeResults(avgConnectivityDf, mode, relative= False)
-    visualizeResults(avgConnectivityDf, mode, relative= True)
+    avgConnectivityDf.to_csv(str(_EXTRACT_DIR / f"avg{mode}.csv"), index= False)
+    visualizeResults(avgConnectivityDf, mode, random, relative= False)
+    visualizeResults(avgConnectivityDf, mode, random, relative= True)
 
 # RUN IT
-for mode in ['targeted', 'random', 'ping']:
-    simulateAttacks(G, mode= mode)
+for mode in ['connectivity', 'ping']:
+    for random in [True, False]:
+        simulateAttacks(G, mode= mode, random= random)
