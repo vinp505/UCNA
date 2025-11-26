@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import imageio
 import seaborn as sns
+from typing import Literal
 from pathlib import Path
 
 _FILE_DIR = Path(__file__).resolve().parent.parent#obtain directory of this file
@@ -108,7 +109,7 @@ def get_top10(avgConnectivityDf:pd.DataFrame, n: int, relative= False):
     # sort by the last relevant iteration so that the legend is in order
     return conn_df.T.sort_values(by= n-1, axis= 0, ascending= False)
 
-def visualizeResults(avgConnectivityDf:pd.DataFrame, relative= False):
+def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, relative= False):
     
     # list to store frames, one frame per slider value
     frames = []
@@ -187,15 +188,24 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, relative= False):
 
     # save gif
     if relative:
-        name = "connectivity_top10_relative.gif"
+        name = f"connectivity_top10_{mode}_relative.gif"
     else:
-        name = "connectivity_top10_absolute.gif"
+        name = f"connectivity_top10_{mode}_absolute.gif"
 
     imageio.mimsave(name, frames, fps=2)
 
-def simulateAttacks(G: nx.MultiGraph, logfile: str = str(_EXTRACT_DIR / "iterations.txt")):
-    #get the average connectivity of each country and the first most important edge
-    _, avg_countryInit, maxEdge, _ = widest_path_all_pairs(G)
+def simulateAttacks(G: nx.MultiGraph, mode: Literal['targeted', 'random', 'ping']= "targeted", logfile: str = str(_EXTRACT_DIR / "iterations.txt")):
+    
+    if mode == 'targeted':
+        #get the average connectivity of each country and the first most important edge
+        _, avg_countryInit, maxEdge, _ = widest_path_all_pairs(G)
+    
+    if mode == 'ping':
+        pass  # Andrei, add function call here
+
+    if mode == 'random':
+        pass  # Greg, add function call here
+
     avgConnectivities = []
     iteration = 1
     already_dropped = set()
@@ -211,9 +221,10 @@ def simulateAttacks(G: nx.MultiGraph, logfile: str = str(_EXTRACT_DIR / "iterati
         avgConnectivities.append(avg_country)
         iteration += 1
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
-    avgConnectivityDf.to_csv(str(_EXTRACT_DIR / "avgConnectivity.csv"), index= False)
-    visualizeResults(avgConnectivityDf, relative= False)
-    visualizeResults(avgConnectivityDf, relative= True)
+    avgConnectivityDf.to_csv(str(_EXTRACT_DIR / f"avgConnectivity_{mode}.csv"), index= False)
+    visualizeResults(avgConnectivityDf, mode, relative= False)
+    visualizeResults(avgConnectivityDf, mode, relative= True)
 
 # RUN IT
-simulateAttacks(G)
+for mode in ['targeted', 'random', 'ping']:
+    simulateAttacks(G, mode= mode)
