@@ -75,7 +75,9 @@ def widest_path_all_pairs(G: nx.MultiGraph, cap_key='capacity', meta_key='meta')
 
 # print(most_important_edge)
 # print(value)
-def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, threshold: float = 0.5, already_dropped: set = None, logfile: str = str(_EXTRACT_DIR / "dropouts.txt")):
+def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, mode: str, random: bool, threshold: float = 0.5, already_dropped: set = None):
+    rnd = "random" if random else "targeted"
+    logfile = str(_EXTRACT_DIR / f"dropouts_{mode}_{rnd}.txt")
     #Initialize already_dropped set if not provided
     if already_dropped is None:
         already_dropped = set()
@@ -220,7 +222,7 @@ def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "ta
         G.remove_edge(maxEdge[0], maxEdge[1], key= maxEdge[2])#remove most important edge
         _, avg_country, maxEdge, _ = func(G, random)#repeat
         #now check which countries dropped out and write that to a log file
-        already_dropped = check_drop_outs(avg_countryInit, avg_country, iteration=iteration, threshold=0.5, already_dropped=already_dropped)
+        already_dropped = check_drop_outs(avg_countryInit, avg_country, iteration=iteration, mode= mode, random= random, threshold=0.5, already_dropped=already_dropped)
         avgConnectivities.append(avg_country)
         iteration += 1
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
