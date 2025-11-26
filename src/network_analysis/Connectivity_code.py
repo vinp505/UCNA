@@ -195,8 +195,11 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= Fal
 
     imageio.mimsave(name, frames, fps=2)
 
-def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "targeted", random: bool= False, logfile: str = str(_EXTRACT_DIR / "iterations.txt")):
+def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "targeted", random: bool= False):
     
+    rnd = "random" if random else "targeted"
+    logfile = str(_EXTRACT_DIR / f"iterations_{mode}_{rnd}.txt")
+
     func_dict = {
         'connectivity' : widest_path_all_pairs,
         'ping' : "placeholder"
@@ -205,7 +208,6 @@ def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "ta
     
     #get the average connectivity of each country and the first most important edge
     _, avg_countryInit, maxEdge, _ = func(G, random)
-
 
     avgConnectivities = []
     iteration = 1
@@ -222,7 +224,7 @@ def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "ta
         avgConnectivities.append(avg_country)
         iteration += 1
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
-    avgConnectivityDf.to_csv(str(_EXTRACT_DIR / f"avg{mode}.csv"), index= False)
+    avgConnectivityDf.to_csv(str(_EXTRACT_DIR / f"avg{mode}_{rnd}.csv"), index= False)
     visualizeResults(avgConnectivityDf, mode, random, relative= False)
     visualizeResults(avgConnectivityDf, mode, random, relative= True)
 
