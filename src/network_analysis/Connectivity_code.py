@@ -52,19 +52,45 @@ def widest_path_all_pairs(G,cap_key='capacity', meta_key='meta'):
 
 pair_widest, avg_country, most_important_edge ,value= widest_path_all_pairs(G)
 
+def average_ping(G, meta_key ='meta'):
+    for u, v in G.edges():
+        G[u][v]["Count"] = 0.0
+    ms=metanodes(G, meta_key)
+    ms=sorted(ms, key=str)
+    pair_length_dict={}
+    for a,b in combinations(ms,2):
+        length=nx.shortest_path_length(G,a,b)
+        path=nx.shortest_path(G,a,b)
+        for u, v in zip(path[:-1], path[1:]):
+             G[u][v]["Count"] += 1
+        pair_length_dict[(a, b)] = {"length": float(length)}
+    avg_length={}
+    for a in ms:
+        vals=[]
+
+        for (x, y), data in pair_length_dict.items():
+            if x == a:
+                vals.append(data['length'])
+                avg_length[a]=(sum(vals) / len(vals)) if vals else 0.0
+    fastest_ping_metanode = min(avg_length.items(), key=lambda x: x[1])[0]
+    avg_length_fast=min(avg_length.items(), key=lambda x: x[1])[1]
+    most_important_edge= max(G.edges(), key=lambda e: G[e[0]][e[1]]['Count'])
+    max_value = G[most_important_edge[0]][most_important_edge[1]]['Count']
+    return fastest_ping_metanode, avg_length_fast, most_important_edge,max_value
+
+
+
 # Example: print top-10 countries by average widest-path capacity
-top10 = sorted(avg_country.items(), key=lambda kv: kv[1], reverse=True)[:10]
-for node, score in top10:
-    ctry = G.nodes[node].get("country", "unknown")
-    print(f"{ctry} ({node}): {score:.2f} Gbps")
+# top10 = sorted(avg_country.items(), key=lambda kv: kv[1], reverse=True)[:10]
+# for node, score in top10:
+#     ctry = G.nodes[node].get("country", "unknown")
+#     print(f"{ctry} ({node}): {score:.2f} Gbps")
+fastest_metanode, avg_length, mvp_edge, count=average_ping(G)
+ctr_name= G.nodes[fastest_metanode].get('country')
+print(ctr_name,avg_length,mvp_edge,count)
 
-# Example: one pair (a,b)
-# a, b = next(iter(pair_widest))
-# info = pair_widest[(a, b)]
-# print("Pair:", a, b, "capacity:", info["capacity"], "path:", info["path"])
 
-print(most_important_edge)
-print(value)
+
 def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, threshold: float = 0.5, already_dropped: set = None, logfile: str = str(_EXTRACT_DIR / "dropouts.txt")):
     #Initialize already_dropped set if not provided
     if already_dropped is None:
