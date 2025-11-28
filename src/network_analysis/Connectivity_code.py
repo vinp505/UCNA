@@ -7,6 +7,9 @@ import imageio
 import seaborn as sns
 from typing import Literal
 from pathlib import Path
+import random as rnd
+
+rnd.seed(42)
 
 _FILE_DIR = Path(__file__).resolve().parent.parent#obtain directory of this file
 _PROJ_DIR = _FILE_DIR.parent#obtain main project directory
@@ -95,24 +98,13 @@ def average_ping(G, meta_key ='meta'):
 # for node, score in top10:
 #     ctry = G.nodes[node].get("country", "unknown")
 #     print(f"{ctry} ({node}): {score:.2f} Gbps")
-<<<<<<< HEAD
-fastest_metanode, avg_length, mvp_edge, count=average_ping(G)
-ctr_name= G.nodes[fastest_metanode].get('country')
-print(ctr_name,avg_length,mvp_edge,count)
-
-=======
->>>>>>> c16a5f209ec8eaa71877b2559c7a05a4a50fc8bf
 
 
-<<<<<<< HEAD
-def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, threshold: float = 0.5, already_dropped: set = None, logfile: str = str(_EXTRACT_DIR / "dropouts.txt")):
-=======
 # print(most_important_edge)
 # print(value)
 def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, mode: str, random: bool, threshold: float = 0.5, already_dropped: set = None):
     rnd = "random" if random else "targeted"
     logfile = str(_EXTRACT_DIR / f"dropouts_{mode}_{rnd}.txt")
->>>>>>> c16a5f209ec8eaa71877b2559c7a05a4a50fc8bf
     #Initialize already_dropped set if not provided
     if already_dropped is None:
         already_dropped = set()
@@ -128,6 +120,10 @@ def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, mode
                 already_dropped.add(country)
 
     return already_dropped
+
+def pick_random_edge(G: nx.MultiGraph):
+
+    return rnd.choice(list(G.edges(keys=True)))
 
 def get_top10(avgConnectivityDf:pd.DataFrame, n: int, relative= False):
     
@@ -239,23 +235,34 @@ def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "ta
 
     func_dict = {
         'connectivity' : widest_path_all_pairs,
-        'ping' : "placeholder"
+        'ping' : average_ping,
     }
     func = func_dict[mode]
     
     #get the average connectivity of each country and the first most important edge
-    _, avg_countryInit, maxEdge, _ = func(G, random)
+    _, avg_countryInit, maxEdge, _ = func(G)
 
     avgConnectivities = []
     iteration = 1
     already_dropped = set()
     while len(already_dropped) < len(avg_countryInit):#run until every country has dropped out
-        statement = f"Iteration {iteration}: removing edge {maxEdge[0]} <-> {maxEdge[1]}"
+        if random:
+            # random attack: choose a random edge each iteration
+            maxEdge = pick_random_edge(G)
+            statement = (f"Iteration {iteration}: randomly removing edge "
+                         f"{maxEdge[0]} <-> {maxEdge[1]} (key={maxEdge[2]})")
+            
+        else:
+            # targeted attack: remove most important edge (from function)
+            statement = (f"Iteration {iteration}: removing edge "
+                         f"{maxEdge[0]} <-> {maxEdge[1]} (key={maxEdge[2]})")
+            
         with open(logfile, 'a') as f:
             f.write(f"{statement}\n")
+
         print(statement)
         G.remove_edge(maxEdge[0], maxEdge[1], key= maxEdge[2])#remove most important edge
-        _, avg_country, maxEdge, _ = func(G, random)#repeat
+        _, avg_country, maxEdge, _ = func(G)#repeat
         #now check which countries dropped out and write that to a log file
         already_dropped = check_drop_outs(avg_countryInit, avg_country, iteration=iteration, mode= mode, random= random, threshold=0.5, already_dropped=already_dropped)
         avgConnectivities.append(avg_country)
