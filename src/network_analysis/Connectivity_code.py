@@ -20,9 +20,10 @@ _VISUAL_DIR = _PROJ_DIR / "visualizations"
 G = nx.read_graphml(str(_EXTRACT_DIR / "THE_MERGED_GRAPH.graphml"))
 
 def metanodes(G, meta_key='meta'):
-    return [n for n ,d in G.nodes(data=True) if d.get(meta_key) is True ]
+    return [n for n ,d in G.nodes(data=True) if d.get(meta_key, False)]
 
 def widest_path_all_pairs(G: nx.MultiGraph, cap_key='capacity', meta_key='meta'):
+
     mst=nx.maximum_spanning_edges(G, weight=cap_key)
 
     edgelist = list(mst)
@@ -66,8 +67,12 @@ def widest_path_all_pairs(G: nx.MultiGraph, cap_key='capacity', meta_key='meta')
 # pair_widest, avg_country, most_important_edge ,value= widest_path_all_pairs(G)
 
 def average_ping(G, meta_key ='meta'):
-    for u, v in G.edges():
-        G[u][v]["Count"] = 0.0
+
+    edge_key_dict = {}
+    for u, v, k in G.edges(keys= True):
+        G[u][v][k]["Count"] = 0.0
+        edge_key_dict[(u, v)] = k
+        edge_key_dict[(v, u)] = k
     ms=metanodes(G, meta_key)
     ms=sorted(ms, key=str)
     pair_length_dict={}
@@ -75,7 +80,7 @@ def average_ping(G, meta_key ='meta'):
         length=nx.shortest_path_length(G,a,b)
         path=nx.shortest_path(G,a,b)
         for u, v in zip(path[:-1], path[1:]):
-             G[u][v]["Count"] += 1
+             G[u][v][edge_key_dict[(u, v)]]["Count"] += 1
         pair_length_dict[(a, b)] = {"length": float(length)}
     avg_length={}
     for a in ms:
@@ -87,9 +92,9 @@ def average_ping(G, meta_key ='meta'):
                 avg_length[a]=(sum(vals) / len(vals)) if vals else 0.0
     fastest_ping_metanode = min(avg_length.items(), key=lambda x: x[1])[0]
     avg_length_fast=min(avg_length.items(), key=lambda x: x[1])[1]
-    most_important_edge= max(G.edges(), key=lambda e: G[e[0]][e[1]]['Count'])
-    max_value = G[most_important_edge[0]][most_important_edge[1]]['Count']
-    return fastest_ping_metanode, avg_length_fast, most_important_edge,max_value
+    most_important_edge= max(G.edges(keys= True), key=lambda e: G[e[0]][e[1]][e[2]]['Count'])
+    max_value = G[most_important_edge[0]][most_important_edge[1]][most_important_edge[2]]['Count']
+    return fastest_ping_metanode, avg_length, most_important_edge,max_value
 
 
 
@@ -203,9 +208,9 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= Fal
             ax.set_ylim(bottom= min_pos_conn-1)
         ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
-        ax.set_ylabel("Connectivity")
+        ax.set_ylabel(f"{mode}")
         ax.set_xlabel("Iteration")
-        ax.set_title(f"Top 10 countries by connectivity.\nFrom iteration {start} to {n-1}.")
+        ax.set_title(f"Top 10 countries by {mode}.\nFrom iteration {start} to {n-1}.")
         
         fig.tight_layout()
  
@@ -222,14 +227,15 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= Fal
 
     # save gif
     if relative:
-        name = f"connectivity_top10_{mode}_{rand}_relative.gif"
+        name = f"{mode}_top10_{rand}_relative.gif"
     else:
-        name = f"connectivity_top10_{mode}_{rand}_absolute.gif"
+        name = f"{mode}_top10_{rand}_absolute.gif"
 
     imageio.mimsave(name, frames, fps=2)
 
-def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "targeted", random: bool= False):
+def simulateAttacks(real_G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "targeted", random: bool= False):
     
+    G = real_G.copy()
     rnd = "random" if random else "targeted"
     logfile = str(_EXTRACT_DIR / f"iterations_{mode}_{rnd}.txt")
 
@@ -267,12 +273,19 @@ def simulateAttacks(G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "ta
         already_dropped = check_drop_outs(avg_countryInit, avg_country, iteration=iteration, mode= mode, random= random, threshold=0.5, already_dropped=already_dropped)
         avgConnectivities.append(avg_country)
         iteration += 1
+    print("End of simulation, saving and plotting results.")
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
-    avgConnectivityDf.to_csv(str(_EXTRACT_DIR / f"avg{mode}_{rnd}.csv"), index= False)
+    avgConnectivityDf.to_csv(str(_EXTRACT_DIR / f"avg_{mode}_{rnd}.csv"), index= False)
+    print("Results saved.")
     visualizeResults(avgConnectivityDf, mode, random, relative= False)
+    print("Plot 1/2 saved.")
     visualizeResults(avgConnectivityDf, mode, random, relative= True)
+    print("Plot 2/2 saved.")
 
 # RUN IT
 for mode in ['connectivity', 'ping']:
-    for random in [True, False]:
+    for random in [False, True]:
+
+        print(f"\n\nRunning {mode} mode, {'random' * random}{'targeted' * (not random)} attacks.")
+
         simulateAttacks(G, mode= mode, random= random)
