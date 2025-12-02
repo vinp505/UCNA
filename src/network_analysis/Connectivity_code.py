@@ -238,7 +238,7 @@ def simulateAttacks(real_G: nx.MultiGraph, mode: Literal['connectivity', 'ping']
     G = real_G.copy()
     rnd = "random" if random else "targeted"
     logfile = str(_EXTRACT_DIR / f"iterations_{mode}_{rnd}.txt")
-
+    open(logfile, "w").close()  # clear file at the beginning
     func_dict = {
         'connectivity' : widest_path_all_pairs,
         'ping' : average_ping,
@@ -284,6 +284,8 @@ def simulateAttacks(real_G: nx.MultiGraph, mode: Literal['connectivity', 'ping']
 
 # RUN IT
 for mode in ['connectivity', 'ping']:
+    if mode == 'ping':
+        continue
     for random in [False, True]:
 
         print(f"\n\nRunning {mode} mode, {'random' * random}{'targeted' * (not random)} attacks.")
