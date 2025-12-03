@@ -22,7 +22,10 @@ G = nx.read_graphml(str(_EXTRACT_DIR / "THE_MERGED_GRAPH.graphml"))
 def metanodes(G, meta_key='meta'):
     return [n for n ,d in G.nodes(data=True) if d.get(meta_key, False)]
 
-def widest_path_all_pairs(G: nx.MultiGraph, cap_key='capacity', meta_key='meta'):
+def metanode_to_country(G, meta_key='meta'):
+    return {n : d['country'] for n, d in G.nodes(data=True) if d.get(meta_key, False)}
+
+def widest_path_all_pairs(G: nx.MultiGraph, meta_dict: dict, cap_key='capacity', meta_key='meta'):
 
     mst=nx.maximum_spanning_edges(G, weight=cap_key)
 
@@ -58,7 +61,7 @@ def widest_path_all_pairs(G: nx.MultiGraph, cap_key='capacity', meta_key='meta')
           for x,y in pair_widest:
              if a==x or a==y:
                 vals.append(pair_widest[(x,y)]['capacity'])
-          avg_country[a]=(sum(vals) / len(vals)) if vals else 0.0
+          avg_country[meta_dict[a]]=(sum(vals) / len(vals)) if vals else 0.0
        #Most important edge
     max_edge = max(T.edges(keys= True), key=lambda e: T[e[0]][e[1]][e[2]]['traffic'])
     max_value = T[max_edge[0]][max_edge[1]][max_edge[2]]['traffic']
@@ -66,7 +69,7 @@ def widest_path_all_pairs(G: nx.MultiGraph, cap_key='capacity', meta_key='meta')
 
 # pair_widest, avg_country, most_important_edge ,value= widest_path_all_pairs(G)
 
-def average_ping(G, meta_key ='meta'):
+def average_ping(G, meta_dict: dict, meta_key ='meta'):
 
     edge_key_dict = {}
     for u, v, k in G.edges(keys= True):
@@ -77,24 +80,27 @@ def average_ping(G, meta_key ='meta'):
     ms=sorted(ms, key=str)
     pair_length_dict={}
     for a,b in combinations(ms,2):
-        length=nx.shortest_path_length(G,a,b)
-        path=nx.shortest_path(G,a,b)
-        for u, v in zip(path[:-1], path[1:]):
-             G[u][v][edge_key_dict[(u, v)]]["Count"] += 1
+        try:
+            length=nx.shortest_path_length(G,a,b)*50  # 50ms added for each rerouting
+            path=nx.shortest_path(G,a,b)
+            for u, v in zip(path[:-1], path[1:]):
+                G[u][v][edge_key_dict[(u, v)]]["Count"] += 1
+        except (nx.NetworkXNoPath, nx.NodeNotFound):
+            length = 600  # not connected: have to use satellites ~600 ms
         pair_length_dict[(a, b)] = {"length": float(length)}
     avg_length={}
     for a in ms:
         vals=[]
 
         for (x, y), data in pair_length_dict.items():
-            if x == a:
+            if x == a or y == a:
                 vals.append(data['length'])
-                avg_length[a]=(sum(vals) / len(vals)) if vals else 0.0
+        avg_length[meta_dict[a]]=(sum(vals) / len(vals)) if vals else 0.0
     fastest_ping_metanode = min(avg_length.items(), key=lambda x: x[1])[0]
     avg_length_fast=min(avg_length.items(), key=lambda x: x[1])[1]
     most_important_edge= max(G.edges(keys= True), key=lambda e: G[e[0]][e[1]][e[2]]['Count'])
     max_value = G[most_important_edge[0]][most_important_edge[1]][most_important_edge[2]]['Count']
-    return fastest_ping_metanode, avg_length, most_important_edge,max_value
+    return fastest_ping_metanode, avg_length, most_important_edge, max_value
 
 
 
@@ -110,6 +116,10 @@ def average_ping(G, meta_key ='meta'):
 def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, mode: str, random: bool, threshold: float = 0.5, already_dropped: set = None):
     rnd = "random" if random else "targeted"
     logfile = str(_EXTRACT_DIR / f"dropouts_{mode}_{rnd}.txt")
+
+    if mode == 'ping':
+        threshold = 1 / threshold
+    
     #Initialize already_dropped set if not provided
     if already_dropped is None:
         already_dropped = set()
@@ -120,7 +130,10 @@ def check_drop_outs(avg_countryInit:dict, avg_country:dict, iteration: int, mode
     with open(logfile, 'a') as f:
         for country, init_cap in avg_countryInit.items():
             current_cap = avg_country.get(country, 0.0)
-            if (current_cap / init_cap) < threshold and country not in already_dropped:
+            if (current_cap / init_cap) < threshold and country not in already_dropped and mode == 'connectivity':
+                f.write(f"Iteration {iteration}: Country {country} dropped out (from {init_cap:.2f} to {current_cap:.2f})\n")
+                already_dropped.add(country)
+            elif ((current_cap / init_cap) > threshold or current_cap >= 450) and country not in already_dropped and mode == 'ping':
                 f.write(f"Iteration {iteration}: Country {country} dropped out (from {init_cap:.2f} to {current_cap:.2f})\n")
                 already_dropped.add(country)
 
@@ -189,7 +202,7 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= Fal
                 if (min_conn_row <= min_pos_conn):
                     min_pos_conn = min_conn_row
 
-                l = f"{i+1}. {r.name}" 
+                l = f"{i+1}. {r.name} ({round(r.values[-1], 3)})" 
             
             # no label for countries outside of the top10
             else:
@@ -236,6 +249,8 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= Fal
 def simulateAttacks(real_G: nx.MultiGraph, mode: Literal['connectivity', 'ping']= "targeted", random: bool= False):
     
     G = real_G.copy()
+    meta_dict = metanode_to_country(G)
+
     rnd = "random" if random else "targeted"
     logfile = str(_EXTRACT_DIR / f"iterations_{mode}_{rnd}.txt")
     open(logfile, "w").close()  # clear file at the beginning
@@ -246,33 +261,35 @@ def simulateAttacks(real_G: nx.MultiGraph, mode: Literal['connectivity', 'ping']
     func = func_dict[mode]
     
     #get the average connectivity of each country and the first most important edge
-    _, avg_countryInit, maxEdge, _ = func(G)
+    _, avg_countryInit, maxEdge, _ = func(G, meta_dict)
 
     avgConnectivities = []
     iteration = 1
     already_dropped = set()
     while len(already_dropped) < len(avg_countryInit):#run until every country has dropped out
+
+
         if random:
             # random attack: choose a random edge each iteration
             maxEdge = pick_random_edge(G)
-            statement = (f"Iteration {iteration}: randomly removing edge "
-                         f"{maxEdge[0]} <-> {maxEdge[1]} (key={maxEdge[2]})")
-            
-        else:
-            # targeted attack: remove most important edge (from function)
-            statement = (f"Iteration {iteration}: removing edge "
-                         f"{maxEdge[0]} <-> {maxEdge[1]} (key={maxEdge[2]})")
+        
+        endpoint_1 = meta_dict.get(maxEdge[0], maxEdge[0])
+        endpoint_2 = meta_dict.get(maxEdge[1], maxEdge[1])
+
+        statement = (f"Iteration {iteration}: {'randomly' * random} removing edge "
+                         f"{endpoint_1} <-> {endpoint_2} (key={maxEdge[2]})")
             
         with open(logfile, 'a') as f:
             f.write(f"{statement}\n")
 
         print(statement)
         G.remove_edge(maxEdge[0], maxEdge[1], key= maxEdge[2])#remove most important edge
-        _, avg_country, maxEdge, _ = func(G)#repeat
+        _, avg_country, maxEdge, _ = func(G, meta_dict)#repeat
         #now check which countries dropped out and write that to a log file
         already_dropped = check_drop_outs(avg_countryInit, avg_country, iteration=iteration, mode= mode, random= random, threshold=0.5, already_dropped=already_dropped)
         avgConnectivities.append(avg_country)
         iteration += 1
+        print(f"{len(avg_countryInit) - len(already_dropped)} countries are STILL in.")
     print("End of simulation, saving and plotting results.")
     avgConnectivityDf = pd.DataFrame(avgConnectivities, dtype=float)#create dataframe with average connectivities of countries for each iteration (countries are columns, so a row represents the average connectivities for all countries at that iteration)
     avgConnectivityDf.to_csv(str(_EXTRACT_DIR / f"avg_{mode}_{rnd}.csv"), index= False)
@@ -284,9 +301,10 @@ def simulateAttacks(real_G: nx.MultiGraph, mode: Literal['connectivity', 'ping']
 
 # RUN IT
 for mode in ['connectivity', 'ping']:
-    if mode == 'ping':
-        continue
     for random in [False, True]:
+        
+        if mode == 'connectivity':
+            continue
 
         print(f"\n\nRunning {mode} mode, {'random' * random}{'targeted' * (not random)} attacks.")
 
