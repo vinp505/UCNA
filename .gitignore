@@ -1,5 +1,5 @@
 # our stuff:
-dataExtracted/*.csv
+#dataExtracted/*.csv
 dataExtracted/*.graphml
 visualizations/*.html
 
