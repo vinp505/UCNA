@@ -190,19 +190,20 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode: str, random: bool, re
         ax.grid(alpha= 0.3)
     
         # keep track of minimum connectivity to adjust graph lims
-        min_pos_conn = np.inf
+        limit = np.inf if mode == 'connectivity' else 0
 
         # plot lines
         idx = list(range(start, n))
         for i, (_, r) in enumerate(conn_df.iterrows()):
-
             # use top10 of final iteration to label countries
             if i < 10:
 
                 # update min conn if needed
-                min_conn_row = r.values.min()
-                if (min_conn_row <= min_pos_conn):
-                    min_pos_conn = min_conn_row
+                val = r.values[-1]
+                if (val <= limit) and mode == 'connectivity':
+                    limit = val
+                elif (val >= limit) and mode == 'ping':
+                    limit= val
 
                 l = f"{i+1}. {r.name} ({round(r.values[-1], 3)})" 
             
@@ -225,8 +226,12 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode: str, random: bool, re
             ax.set_yticks([1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0])
             ax.axhline(y= 2, linestyle= '--', c= 'darkred') 
 
+        elif mode == 'connectivity':
+            ax.set_ylim(bottom= limit-3)
+        
         else:
-            ax.set_ylim(bottom= min_pos_conn-1)
+            ax.set_ylim(top = limit+3)
+
         ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
         ax.set_ylabel(f"{mode}")
