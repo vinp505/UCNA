@@ -97,25 +97,28 @@ def plot_graph_folium(G, output_file, cablesDir = None):
     # Save map as HTML
     m.save(output_file)
     print(f"Map saved to {output_file}")
-    
-# Initialize the parser
-parser = argparse.ArgumentParser(description="Open and process a file provided by CLI.")
 
-# Add a positional argument for the filename
-parser.add_argument("filename", type=str, help="The path to the file you want to open")
+def main():
+    # Initialize the parser
+    parser = argparse.ArgumentParser(description="Open and process a file provided by CLI.")
 
-# Parse the arguments
-args = parser.parse_args()
+    # Add a positional argument for the filename
+    parser.add_argument("filename", type=str, help="The path to the file you want to open")
 
-# Check validity (optional but good practice)
-if not os.path.exists(args.filename):
-    print(f"Error: The file '{args.filename}' does not exist.")
-    raise ValueError("Path doesn't exist.")
+    # Parse the arguments
+    args = parser.parse_args()
 
-# Open the file safely using a context manager
-print(f"Opening {str(_EXTRACT_DIR / args.filename)}...")
+    # Check validity (optional but good practice)
+    if not os.path.exists(args.filename):
+        print(f"Error: The file '{args.filename}' does not exist.")
+        raise ValueError("Path doesn't exist.")
 
-G = nx.read_graphml(str(_EXTRACT_DIR / args.filename))
+    #open file
+    print(f"Opening {str(_EXTRACT_DIR / args.filename)}...")
+    G = nx.read_graphml(str(_EXTRACT_DIR / args.filename))
 
-#save in the visualizations directory
-plot_graph_folium(G, output_file=str(_VISUAL_DIR / (str(args.filename).split(sep='.')[0] + ".html")))
+    #save in the visualizations directory
+    plot_graph_folium(G, output_file=str(_VISUAL_DIR / (str(args.filename).split(sep='.')[0] + ".html")))
+
+if __name__ == "__main__":
+    main()
