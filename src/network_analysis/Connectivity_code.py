@@ -280,8 +280,12 @@ def simulateAttacks(real_G: nx.MultiGraph, mode: Literal['connectivity', 'ping']
     iteration = 1
     already_dropped = set()
     while len(already_dropped) < len(avg_countryInit):#run until every country has dropped out
-
-
+        if iteration == 47:
+            #save the graph
+            nx.write_graphml(G, str(_EXTRACT_DIR / "beforeEgypt.graphml"))
+        if iteration == 48:
+            #save the graph
+            nx.write_graphml(G, str(_EXTRACT_DIR / "afterEgypt.graphml"))
         if random:
             # random attack: choose a random edge each iteration
             maxEdge = pick_random_edge(G)
