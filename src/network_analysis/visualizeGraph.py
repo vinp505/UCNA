@@ -109,13 +109,13 @@ def main():
     args = parser.parse_args()
 
     # Check validity (optional but good practice)
-    if not os.path.exists(args.filename):
+    if not os.path.exists(str(_EXTRACT_DIR / str(args.filename))):
         print(f"Error: The file '{args.filename}' does not exist.")
         raise ValueError("Path doesn't exist.")
 
     #open file
-    print(f"Opening {str(_EXTRACT_DIR / args.filename)}...")
-    G = nx.read_graphml(str(_EXTRACT_DIR / args.filename))
+    print(f"Opening {str(_EXTRACT_DIR / str(args.filename))}...")
+    G = nx.read_graphml(str(_EXTRACT_DIR / str(args.filename)))
 
     #save in the visualizations directory
     plot_graph_folium(G, output_file=str(_VISUAL_DIR / (str(args.filename).split(sep='.')[0] + ".html")))
