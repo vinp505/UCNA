@@ -143,7 +143,7 @@ def pick_random_edge(G: nx.MultiGraph):
 
     return rnd.choice(list(G.edges(keys=True)))
 
-def get_top10(avgConnectivityDf:pd.DataFrame, n: int, relative= False):
+def get_top10(avgConnectivityDf:pd.DataFrame, n: int, mode: str, relative= False):
     
     # set start of the slicing
     start = n-30
@@ -157,10 +157,12 @@ def get_top10(avgConnectivityDf:pd.DataFrame, n: int, relative= False):
     idx = list(range(start, n))
     conn_df = pd.DataFrame(ConnDf.loc[idx])
 
+    asc = False if mode == 'connectivity' else True
+    
     # sort by the last relevant iteration so that the legend is in order
-    return conn_df.T.sort_values(by= n-1, axis= 0, ascending= False)
+    return conn_df.T.sort_values(by= n-1, axis= 0, ascending= asc)
 
-def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= False):
+def visualizeResults(avgConnectivityDf:pd.DataFrame, mode: str, random: bool, relative= False):
     
     rand = "random" if random else "targeted"
     # list to store frames, one frame per slider value
@@ -188,19 +190,20 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= Fal
         ax.grid(alpha= 0.3)
     
         # keep track of minimum connectivity to adjust graph lims
-        min_pos_conn = np.inf
+        limit = np.inf if mode == 'connectivity' else 0
 
         # plot lines
         idx = list(range(start, n))
         for i, (_, r) in enumerate(conn_df.iterrows()):
-
             # use top10 of final iteration to label countries
             if i < 10:
 
                 # update min conn if needed
-                min_conn_row = r.values.min()
-                if (min_conn_row <= min_pos_conn):
-                    min_pos_conn = min_conn_row
+                val = r.values[-1]
+                if (val <= limit) and mode == 'connectivity':
+                    limit = val
+                elif (val >= limit) and mode == 'ping':
+                    limit= val
 
                 l = f"{i+1}. {r.name} ({round(r.values[-1], 3)})" 
             
@@ -213,12 +216,22 @@ def visualizeResults(avgConnectivityDf:pd.DataFrame, mode, random, relative= Fal
 
         ax.set_xticks(list(range(len(idx))), idx)
 
-        if relative:
+        if relative and mode == 'connectivity':
             ax.set_ylim(-0.1, 1.1)
             ax.set_yticks([0.0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0])
             ax.axhline(y= 0.5, linestyle= '--', c= 'darkred') 
+        
+        elif relative and mode == 'ping':
+            ax.set_ylim(0.9, 3.1)
+            ax.set_yticks([1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0])
+            ax.axhline(y= 2, linestyle= '--', c= 'darkred') 
+
+        elif mode == 'connectivity':
+            ax.set_ylim(bottom= limit-3)
+        
         else:
-            ax.set_ylim(bottom= min_pos_conn-1)
+            ax.set_ylim(top = limit+3)
+
         ax.legend(loc="center left", bbox_to_anchor=(1, 0.5))
 
         ax.set_ylabel(f"{mode}")
